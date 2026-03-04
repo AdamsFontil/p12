@@ -1,0 +1,8 @@
+services:
+  app:
+    image: express-server
+    build: .
+    ports: 
+      - 3005:3000
+
+
