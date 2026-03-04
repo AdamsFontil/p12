@@ -1,0 +1,10 @@
+root@a6675dc63d14:/# cd usr/src/app/         
+root@a6675dc63d14:/usr/src/app# ls
+index.js
+root@a6675dc63d14:/usr/src/app# nano index.js 
+root@a6675dc63d14:/usr/src/app# ls
+index.js
+root@a6675dc63d14:/usr/src/app# nano index.js 
+root@a6675dc63d14:/usr/src/app# cat index.js 
+console.log('Hello World')
+root@a6675dc63d14:/usr/src/app# 
