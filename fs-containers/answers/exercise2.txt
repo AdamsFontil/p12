@@ -1,0 +1,22 @@
+collar@fedora:~/code/fso/containers-p12/fs-containers$ docker run -it ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+01d7766a2e4a: Pull complete 
+fd8cda969ed2: Download complete 
+Digest: sha256:d1e2e92c075e5ca139d51a140fff46f84315c0fdce203eab2807c7e495eff4f9
+Status: Downloaded newer image for ubuntu:latest
+root@a6675dc63d14:/# ls
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+root@a6675dc63d14:/# mkdir /usr/src/app
+root@a6675dc63d14:/# cd usr/src/
+root@a6675dc63d14:/usr/src# ls
+app
+root@a6675dc63d14:/usr/src# touch app/index.js
+root@a6675dc63d14:/usr/src# cd app/
+root@a6675dc63d14:/usr/src/app# ls
+index.js
+root@a6675dc63d14:/usr/src/app# exit
+exit
+collar@fedora:~/code/fso/containers-p12/fs-containers$ 
+
