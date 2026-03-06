@@ -1,0 +1,72 @@
+~/code/fso/containers-p12/fs-containers/todo-app/todo-backend main ❯                                                                                   4m 15s
+~/code/fso/containers-p12/fs-containers/todo-app/todo-backend main ❯ docker exec -it todo-backend-mongo-1 bash                                         4m 15s
+root@27b5ebe0d4e9:/# ls
+bin  boot  data  dev  docker-entrypoint-initdb.d  etc  home  js-yaml.js  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@27b5ebe0d4e9:/# mongosh -u "root" -p "example"
+Current Mongosh Log ID:	69aa548c82715a0e478563b0
+Connecting to:		mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.7.0
+Using MongoDB:		8.2.5
+Using Mongosh:		2.7.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-03-06T04:05:04.691+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2026-03-06T04:05:05.137+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2026-03-06T04:05:05.137+00:00: We suggest setting the contents of sysfsFile to 0.
+   2026-03-06T04:05:05.138+00:00: We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.
+------
+
+test> show dbs
+admin         100.00 KiB
+config        108.00 KiB
+local          64.00 KiB
+the_database   64.00 KiB
+test> use the_database
+switched to db the_database
+the_database> show collections
+todos
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('69aa4dabeab91950378563b1'),
+    text: 'Write code',
+    done: true
+  },
+  {
+    _id: ObjectId('69aa4dabeab91950378563b2'),
+    text: 'Learn about containers',
+    done: false
+  }
+]
+the_database> db.todos.insertOne( {text: "Increase the number of tools in my tool belt", done: false} )
+{
+  acknowledged: true,
+  insertedId: ObjectId('69aa552b82715a0e478563b1')
+}
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('69aa4dabeab91950378563b1'),
+    text: 'Write code',
+    done: true
+  },
+  {
+    _id: ObjectId('69aa4dabeab91950378563b2'),
+    text: 'Learn about containers',
+    done: false
+  },
+  {
+    _id: ObjectId('69aa552b82715a0e478563b1'),
+    text: 'Increase the number of tools in my tool belt',
+    done: false
+  }
+]
+the_database> 
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+the_database> 
+root@27b5ebe0d4e9:/# exit
+exit
+~/code/fso/containers-p12/fs-containers/todo-app/todo-backend main ❯                                                                                   3m 56s
+
