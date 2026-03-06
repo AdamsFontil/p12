@@ -48,31 +48,11 @@ singleRouter.put('/', async (req, res) => {
   console.log(`here is text-${text}, and done-${done}`)
   req.todo.text = text
   req.todo.done = done
-  req.todo.save()
+  await req.todo.save()
   console.log('Newtodo??', req.todo)
   res.send(req.todo)
 });
 
-
-
-// notesRouter.put('/:id', (request, response, next) => {
-//   const { content, important } = request.body
-
-//   Note.findById(request.params.id)
-//     .then(note => {
-//       if (!note) {
-//         return response.status(404).end()
-//       }
-
-//       note.content = content
-//       note.important = important
-
-//       return note.save().then(updatedNote => {
-//         response.json(updatedNote)
-//       })
-//     })
-//     .catch(error => next(error))
-// })
 
 
 
