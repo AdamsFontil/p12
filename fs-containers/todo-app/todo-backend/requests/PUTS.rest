@@ -1,10 +1,3 @@
-# GET http://localhost:3000/todos
-
-
-GET http://localhost:3000/todos/69aeeac11b6c607ed2139d92
-
-
-
 PUT http://localhost:3000/todos/69aeeac11b6c607ed2139d92
 Content-Type: application/json
 
@@ -12,3 +5,4 @@ Content-Type: application/json
   "text": "BETe93939",
   "done": false
 }
+
