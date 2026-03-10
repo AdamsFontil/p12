@@ -7,8 +7,6 @@ const redisCache = require('../redis/index')
 const initTodosCounter = async () => await redisCache.jsonSet('todos_added2', '$', {'added_todos': 2})
 initTodosCounter()
 
-
-
 /* GET todos listing. */
 router.get('/', async (_, res) => {
   const todos = await Todo.find({})
@@ -21,8 +19,17 @@ router.post('/', async (req, res) => {
     text: req.body.text,
     done: false
   })
-  console.log('B4 incr todos_added2', await redisCache.jsonGet('todos_added2'))
-  await redisCache.jsonIncr('todos_added2', '$.added_todos', 1)
+  const keyExists = await redisCache.jsonGet('todos_added2')
+  if (keyExists) {
+    console.log('no need to create key')
+    console.log('B4 incr todos_added2', keyExists)
+    await redisCache.jsonIncr('todos_added2', '$.added_todos', 1)
+  } else {
+    console.log('MUST create key')
+    console.log('B4 CREATING todos_added2', await redisCache.jsonGet('todos_added2'))
+    await await redisCache.jsonSet('todos_added2', '$', {'added_todos': 1})
+  }
+
   console.log('AFTER incr todos_added2', await redisCache.jsonGet('todos_added2'))
   res.send(todo);
 });

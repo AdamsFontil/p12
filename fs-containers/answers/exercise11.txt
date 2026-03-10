@@ -1,0 +1,24 @@
+~/c/f/containers-p12/f/todo-a/todo-backend main !1 ❯ docker exec -it my-redis redis-cli -a 'redis_pass-123'
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+127.0.0.1:6379> keys *
+1) "todos_added2"
+127.0.0.1:6379> json.get todos_added2
+"{\"added_todos\":2}"
+127.0.0.1:6379> json.set todos_addede2 $.added_todos 9001
+(error) ERR new objects must be created at the root
+127.0.0.1:6379> json.set todos_added2 $.added_todos 9001
+OK
+127.0.0.1:6379> json.get todos_added2
+"{\"added_todos\":9001}"
+127.0.0.1:6379> json.get todos_added2
+"{\"added_todos\":9002}"
+127.0.0.1:6379> keys *
+1) "todos_added2"
+127.0.0.1:6379> json.del todos_added2
+(integer) 1
+127.0.0.1:6379> keys *
+(empty array)
+127.0.0.1:6379> json.get todos_added2
+"{\"added_todos\":1}"
+127.0.0.1:6379> exit
+~/c/f/containers-p12/f/todo-a/todo-backend main !1 ❯   
