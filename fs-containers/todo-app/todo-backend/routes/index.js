@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const redis = require('../redis')
+const redisCache = require('../redis/index')
 
 const configs = require('../util/config')
 
@@ -16,6 +16,11 @@ router.get('/', async (req, res) => {
   });
 });
 
+router.get('/statistics', async (req, res) => {
+  const stats = await redisCache.jsonGet('todos_added2')
+  console.log('what are stats...', stats);
+  res.json(stats)
+})
 
 
 

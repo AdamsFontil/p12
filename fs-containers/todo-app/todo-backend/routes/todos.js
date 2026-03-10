@@ -1,6 +1,13 @@
 const express = require('express');
 const { Todo } = require('../mongo')
 const router = express.Router();
+const redisCache = require('../redis/index')
+
+
+const initTodosCounter = async () => await redisCache.jsonSet('todos_added2', '$', {'added_todos': 2})
+initTodosCounter()
+
+
 
 /* GET todos listing. */
 router.get('/', async (_, res) => {
@@ -14,6 +21,9 @@ router.post('/', async (req, res) => {
     text: req.body.text,
     done: false
   })
+  console.log('B4 incr todos_added2', await redisCache.jsonGet('todos_added2'))
+  await redisCache.jsonIncr('todos_added2', '$.added_todos', 1)
+  console.log('AFTER incr todos_added2', await redisCache.jsonGet('todos_added2'))
   res.send(todo);
 });
 

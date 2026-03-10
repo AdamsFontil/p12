@@ -3,6 +3,6 @@ POST http://localhost:3000/todos
 Content-Type: application/json
 
 {
-  "text": "skskaowow",
+  "text": "5TH",
   "done": false
 }
