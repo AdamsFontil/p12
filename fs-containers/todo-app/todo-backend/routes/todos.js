@@ -7,6 +7,7 @@ const redisCache = require('../redis/index')
 const initTodosCounter = async () => await redisCache.jsonSet('todos_added2', '$', {'added_todos': 2})
 initTodosCounter()
 
+
 /* GET todos listing. */
 router.get('/', async (_, res) => {
   const todos = await Todo.find({})
