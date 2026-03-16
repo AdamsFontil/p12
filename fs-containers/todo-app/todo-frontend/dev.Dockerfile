@@ -1,2 +1,11 @@
-REDIS_URL=redis://:redis_pass-123@localhost:6379
-MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database
+FROM node:24
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+# Change npm ci to npm install since we are going to be in development mode
+RUN npm install
+
+# npm run dev is the command to start the application in development mode
+CMD ["npm", "run", "dev", "--", "--host"]
