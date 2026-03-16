@@ -1,11 +1,11 @@
-GET http://localhost:3000/todos
+GET http://localhost:8080/api/todos
 
 
-GET http://localhost:3000/todos/69aeeac11b6c607ed2139d92
+# GET http://localhost:8080/api/todos/69b8885375c3e4d87d8563b1
 
 
 
-PUT http://localhost:3000/todos/69aeeac11b6c607ed2139d92
+PUT http://localhost:8080/api/todos/69b8885375c3e4d87d8563b1
 Content-Type: application/json
 
 {
