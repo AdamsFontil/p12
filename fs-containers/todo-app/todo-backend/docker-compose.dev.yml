@@ -21,6 +21,20 @@ services:
     command: redis-server --requirepass redis_pass-123 --appendonly yes
     restart: unless-stopped
 
+  debug-helper:
+    image: busybox
+
+  server:
+    image: hello-back-dev
+    container_name: app-backend
+    ports:
+      - "3005:3000"
+    environment:
+      REDIS_URL: redis://:redis_pass-123@redis:6379
+      MONGO_URL: mongodb://root:example@mongo:27017/the_database?authSource=admin
+    volumes:
+      - .:/usr/src/app
+
 volumes:
   mongo_data:
   redis-data:
