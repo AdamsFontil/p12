@@ -12,6 +12,8 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 
+console.log('TESTING123')
+
 app.use('/', indexRouter);
 app.use('/todos', todosRouter);
 

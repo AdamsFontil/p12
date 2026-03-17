@@ -11,7 +11,7 @@ const TodoList = ({ todos, deleteTodo, completeTodo }) => {
 
   return (
     <>
-      <h2>Hello WOLRD</h2>
+      <h2>Hiya</h2>
       {todos
         .map((todo) => {
           const doneInfo = (
@@ -48,7 +48,7 @@ const TodoList = ({ todos, deleteTodo, completeTodo }) => {
           );
         })
         .reduce((acc, cur) => [...acc, <hr />, cur], [])}
-      <h2>HI AGAIN</h2>
+      <h2>RIGHT URLS NEEDED</h2>
     </>
   );
 };

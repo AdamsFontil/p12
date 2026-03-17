@@ -67,7 +67,7 @@ singleRouter.put('/', async (req, res) => {
   req.todo.text = text
   req.todo.done = done
   await req.todo.save()
-  console.log('Newtodo??', req.todo)
+  console.log('Newtodo??111', req.todo)
   res.send(req.todo)
 });
 

@@ -6,9 +6,8 @@ COPY . .
 
 RUN npm ci
 
-ENV VITE_BACKEND_URL=http://localhost:3000
+ENV VITE_BACKEND_URL=http://localhost:8080/api/
 
-RUN echo 'THIS IS THE PROD2'
 RUN npm run test
 RUN npm run build
 
