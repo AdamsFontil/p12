@@ -39,8 +39,6 @@ services:
     environment:
       REDIS_URL: redis://:redis_pass-123@redis:6379
       MONGO_URL: mongodb://root:example@mongo:27017/the_database?authSource=admin
-    volumes:
-      - ./todo-backend:/usr/src/app
     depends_on:
       - mongo
       - redis
