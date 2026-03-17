@@ -43,9 +43,6 @@ services:
       - mongo
       - redis
 
-  debug-helper:
-    image: busybox
-
 volumes:
   mongo_data:
   redis-data:
